@@ -1,0 +1,8 @@
+{
+    "colorInfo.languages": [
+        {
+            "selector": "js",
+            "colors": ["css", "hex", "hex+alpha", "rgb", "hsl", "css-color-names"]
+        }
+    ]
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="US-en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="logic.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Noto+Serif" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eczar|Gentium+Basic|Libre+Baskerville|Libre+Franklin|Proza+Libre|Rubik|Taviraj|Trirong|Work+Sans"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ewert|Gravitas+One|Monoton" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Aldrich|Bungee+Inline|Fredericka+the+Great|Kumar+One+Outline|Monofett|Monoton|Notable|Orbitron|Patua+One|Press+Start+2P|Questrial|Righteous|Teko"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Merriweather|Noto+Serif" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eczar|Gentium+Basic|Libre+Baskerville|Libre+Franklin|Proza+Libre|Rubik|Taviraj|Trirong|Work+Sans"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Ewert|Gravitas+One|Monoton" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body id="aboutMain">
+  <header>
+    <div id="headTop">
+      <h1>Picross</h1>
+
+      <ul>
+        <li><a href="page_main.html">Home</a></li>
+        <li><a href="page_about.html">About</a></li>
+        <li><a href="page_game.html">Game</a></li>
+        <li><a href="page_howtoplay.html">Info</a></li>
+      </ul>
+
+    </div>
+  </header>
+
+  <div id="aboutBody">
+    <div id="HoldsButtons" style ="text-align:center">
+      <section style="background:none; border:none; margin-bottom: 10px">
+        <div id="scoreHolderB" style="align-content: center">
+          <button onclick="submitChoice('RandomModeT')" name="RandomMode(Time)" style="height: 30px; background:#6885B0; color: white;font-family: 'Aldrich', sans-serif;
+    font-size: 15px;">RandomMode(Time)</button>
+          <button onclick="submitChoice('ArcadeModeT')" value="ArcadeMode(Time)" style="height: 30px;background:#6885B0; color: white;font-family: 'Aldrich', sans-serif; font-size: 15px;">ArcadeMode(Time)</button>
+          <button onclick="submitChoice('AttackModeT')" value="AttackMode(Time)" style="height: 30px;background:#6885B0; color: white;font-family: 'Aldrich', sans-serif;font-size: 15px;">AttackMode(Time)</button>
+
+        </div>
+      </section>
+      <section style="background:none; border:none; margin-top: 10px">
+        <div id="scoreHolderB" style="align-content: center">
+          <button onclick="submitChoice('RandomModeS')" value="RandomMode(Score)" style="height: 30px;background:#6885B0; color: white;font-family: 'Aldrich', sans-serif;font-size: 15px;">RandomMode(Score)</button>
+          <button onclick="submitChoice('ArcadeModeS')" value="ArcadeMode(Score)" style="height: 30px;background:#6885B0; color: white;font-family: 'Aldrich', sans-serif;font-size: 15px;">ArcadeMode(Score)</button>
+          <button onclick="submitChoice('AttackModeS')" value="AttackMode(Score)" style="height: 30px;background:#6885B0; color: white;font-family: 'Aldrich', sans-serif; font-size: 15px;">AttackMode(Score)</button>
+
+        </div>
+      </section>
+    </div>
+    <br><br><br><br><br><br>
+    <section style="position:absolute; max-height: 700px; background: #3B3E42;  ">
+
+      <table id="hiScoreTable" style="color: #F0DA16; text-align:center; margin-top:20px; margin :0 auto;">
+
+      </table>
+
+    </section>
+    <div id="innerBody">
+      <div id="Rcont">
+        <div id="r1" class="rectangle"></div>
+        <div id="r2" class="rectangle"></div>
+      </div>
+      <div id="Lcont">
+        <div id="r3" class="rectangle"></div>
+        <div id="r4" class="rectangle"></div>
+      </div>
+      <div id="r5" class="rectangle"></div>
+      <div id="r6" class="rectangle"></div>
+      <div id="r7" class="rectangle"></div>
+      <div id="r8" class="rectangle"></div>
+      <div id="r9" class="rectangle"></div>
+      <div id="r10" class="rectangle"></div>
+      <br><br><br><br><br><br><br>
+      <div id="Rcont2">
+        <div id="r12" class="rectangle"></div>
+        <div id="r11" class="rectangle"></div>
+
+      </div>
+      <div id="Lcont2">
+        <div id="r14" class="rectangle"></div>
+        <div id="r13" class="rectangle"></div>
+
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
+<script>
+  getScores();
+</script>

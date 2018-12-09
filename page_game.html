@@ -1,0 +1,429 @@
+<!-- 
+    page_game.html
+    html for the main page where you play the game
+-->
+
+<!DOCTYPE html>
+<html lang="US-en">
+
+<head>
+    <link rel="stylesheet" href="styleGame.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich|Bungee+Inline|Fredericka+the+Great|Kumar+One+Outline|Monofett|Monoton|Notable|Orbitron|Patua+One|Press+Start+2P|Questrial|Righteous|Teko"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Noto+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eczar|Gentium+Basic|Libre+Baskerville|Libre+Franklin|Proza+Libre|Rubik|Taviraj|Trirong|Work+Sans"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Gravitas+One|Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eczar|Gentium+Basic|Libre+Baskerville|Libre+Franklin|Proza+Libre|Rubik|Taviraj|Trirong|Work+Sans"
+        rel="stylesheet">
+    <script type="text/javascript" src="logic.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Noto+Serif" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond|Eczar|Gentium+Basic|Libre+Baskerville|Libre+Franklin|Proza+Libre|Rubik|Taviraj|Trirong|Work+Sans"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Ewert|Gravitas+One|Monoton" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+
+<body id="game" onload="seven(); setTime();">
+    <header>
+        <div id="headTop">
+            <h1>Picross</h1>
+            <a id="login" href="login_mysql.php">Login</a>
+            <a id= "scoreButton" href="highScores.html">Scores</a>
+            <a id="logout" href="logout_mysql.php" style="visibility: hidden" >Logout</a>
+
+            <ul>
+                <li><a href="page_main.html">Home</a></li>
+                <li><a href="page_about.html">About</a></li>
+                <li class="current"><a href="page_game.html">Game</a></li>
+                <li><a href="page_howtoplay.html">Info</a></li>
+            </ul>
+
+        </div>
+
+    </header>
+
+    <div id="innerBody">
+        <div id="tblCont">
+            <table id="table">
+                <tr id="numRow">
+                    <td id="r0" class="rowLabel" style="background:none; border-top: 0px;border-left: 0px;"></td>
+                    <td id="r1" class="rowLabel"></td>
+                    <td id="r2" class="rowLabel"></td>
+                    <td id="r3" class="rowLabel"></td>
+                    <td id="r4" class="rowLabel"></td>
+                    <td id="r5" class="rowLabel"></td>
+                    <td id="r6" class="rowLabel"></td>
+                    <td id="r7" class="rowLabel"></td>
+                </tr>
+                <tr>
+                    <td id="t0" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="00"></td>
+                    <td class="content" id="01"></td>
+                    <td class="content" id="02"></td>
+                    <td class="content" id="03"></td>
+                    <td class="content" id="04"></td>
+                    <td class="content" id="05"></td>
+                    <td class="content" id="06"></td>
+                </tr>
+                <tr>
+                    <td id="t1" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="10"></td>
+                    <td class="content" id="11"></td>
+                    <td class="content" id="12"></td>
+                    <td class="content" id="13"></td>
+                    <td class="content" id="14"></td>
+                    <td class="content" id="15"></td>
+                    <td class="content" id="16"></td>
+                </tr>
+                <tr>
+                    <td id="t2" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="20"></td>
+                    <td class="content" id="21"></td>
+                    <td class="content" id="22"></td>
+                    <td class="content" id="23"></td>
+                    <td class="content" id="24"></td>
+                    <td class="content" id="25"></td>
+                    <td class="content" id="26"></td>
+                </tr>
+                <tr>
+                    <td id="t3" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="30"></td>
+                    <td class="content" id="31"></td>
+                    <td class="content" id="32"></td>
+                    <td class="content" id="33"></td>
+                    <td class="content" id="34"></td>
+                    <td class="content" id="35"></td>
+                    <td class="content" id="36"></td>
+                </tr>
+                <tr>
+                    <td id="t4" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="40"></td>
+                    <td class="content" id="41"></td>
+                    <td class="content" id="42"></td>
+                    <td class="content" id="43"></td>
+                    <td class="content" id="44"></td>
+                    <td class="content" id="45"></td>
+                    <td class="content" id="46"></td>
+                </tr>
+                <tr>
+                    <td id="t5" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="50"></td>
+                    <td class="content" id="51"></td>
+                    <td class="content" id="52"></td>
+                    <td class="content" id="53"></td>
+                    <td class="content" id="54"></td>
+                    <td class="content" id="55"></td>
+                    <td class="content" id="56"></td>
+                </tr>
+                <tr>
+                    <td id="t6" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="60"></td>
+                    <td class="content" id="61"></td>
+                    <td class="content" id="62"></td>
+                    <td class="content" id="63"></td>
+                    <td class="content" id="64"></td>
+                    <td class="content" id="65"></td>
+                    <td class="content" id="66"></td>
+                </tr>
+
+
+            </table>
+        </div>
+        <div id="tblCont2">
+            <table id="table2">
+                <tr id="numRow">
+                    <td id="k0" class="rowLabel" style="background:none; border-top: 0px;border-left: 0px;"></td>
+                    <td id="k1" class="rowLabel"></td>
+                    <td id="k2" class="rowLabel"></td>
+                    <td id="k3" class="rowLabel"></td>
+                    <td id="k4" class="rowLabel"></td>
+                    <td id="k5" class="rowLabel"></td>
+                    <td id="k6" class="rowLabel"></td>
+                    <td id="k7" class="rowLabel"></td>
+                    <td id="k8" class="rowLabel"></td>
+                    <td id="k9" class="rowLabel"></td>
+                    <td id="k10" class="rowLabel"></td>
+                    <td id="k11" class="rowLabel"></td>
+                    <td id="k12" class="rowLabel"></td>
+                    <td id="k13" class="rowLabel"></td>
+                </tr>
+                <tr>
+                    <td id="s0" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="0 0"></td>
+                    <td class="content" id="0 1"></td>
+                    <td class="content" id="0 2"></td>
+                    <td class="content" id="0 3"></td>
+                    <td class="content" id="0 4"></td>
+                    <td class="content" id="0 5"></td>
+                    <td class="content" id="0 6"></td>
+                    <td class="content" id="0 7"></td>
+                    <td class="content" id="0 8"></td>
+                    <td class="content" id="0 9"></td>
+                    <td class="content" id="0 10"></td>
+                    <td class="content" id="0 11"></td>
+                    <td class="content" id="0 12"></td>
+                </tr>
+                <tr>
+                    <td id="s1" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="1 0"></td>
+                    <td class="content" id="1 1"></td>
+                    <td class="content" id="1 2"></td>
+                    <td class="content" id="1 3"></td>
+                    <td class="content" id="1 4"></td>
+                    <td class="content" id="1 5"></td>
+                    <td class="content" id="1 6"></td>
+                    <td class="content" id="1 7"></td>
+                    <td class="content" id="1 8"></td>
+                    <td class="content" id="1 9"></td>
+                    <td class="content" id="1 10"></td>
+                    <td class="content" id="1 11"></td>
+                    <td class="content" id="1 12"></td>
+                </tr>
+                <tr>
+                    <td id="s2" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="2 0"></td>
+                    <td class="content" id="2 1"></td>
+                    <td class="content" id="2 2"></td>
+                    <td class="content" id="2 3"></td>
+                    <td class="content" id="2 4"></td>
+                    <td class="content" id="2 5"></td>
+                    <td class="content" id="2 6"></td>
+                    <td class="content" id="2 7"></td>
+                    <td class="content" id="2 8"></td>
+                    <td class="content" id="2 9"></td>
+                    <td class="content" id="2 10"></td>
+                    <td class="content" id="2 11"></td>
+                    <td class="content" id="2 12"></td>
+                </tr>
+                <tr>
+                    <td id="s3" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="3 0"></td>
+                    <td class="content" id="3 1"></td>
+                    <td class="content" id="3 2"></td>
+                    <td class="content" id="3 3"></td>
+                    <td class="content" id="3 4"></td>
+                    <td class="content" id="3 5"></td>
+                    <td class="content" id="3 6"></td>
+                    <td class="content" id="3 7"></td>
+                    <td class="content" id="3 8"></td>
+                    <td class="content" id="3 9"></td>
+                    <td class="content" id="3 10"></td>
+                    <td class="content" id="3 11"></td>
+                    <td class="content" id="3 12"></td>
+                </tr>
+                <tr>
+                    <td id="s4" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="4 0"></td>
+                    <td class="content" id="4 1"></td>
+                    <td class="content" id="4 2"></td>
+                    <td class="content" id="4 3"></td>
+                    <td class="content" id="4 4"></td>
+                    <td class="content" id="4 5"></td>
+                    <td class="content" id="4 6"></td>
+                    <td class="content" id="4 7"></td>
+                    <td class="content" id="4 8"></td>
+                    <td class="content" id="4 9"></td>
+                    <td class="content" id="4 10"></td>
+                    <td class="content" id="4 11"></td>
+                    <td class="content" id="4 12"></td>
+                </tr>
+                <tr>
+                    <td id="s5" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="5 0"></td>
+                    <td class="content" id="5 1"></td>
+                    <td class="content" id="5 2"></td>
+                    <td class="content" id="5 3"></td>
+                    <td class="content" id="5 4"></td>
+                    <td class="content" id="5 5"></td>
+                    <td class="content" id="5 6"></td>
+                    <td class="content" id="5 7"></td>
+                    <td class="content" id="5 8"></td>
+                    <td class="content" id="5 9"></td>
+                    <td class="content" id="5 10"></td>
+                    <td class="content" id="5 11"></td>
+                    <td class="content" id="5 12"></td>
+                </tr>
+                <tr>
+                    <td id="s6" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="6 0"></td>
+                    <td class="content" id="6 1"></td>
+                    <td class="content" id="6 2"></td>
+                    <td class="content" id="6 3"></td>
+                    <td class="content" id="6 4"></td>
+                    <td class="content" id="6 5"></td>
+                    <td class="content" id="6 6"></td>
+                    <td class="content" id="6 7"></td>
+                    <td class="content" id="6 8"></td>
+                    <td class="content" id="6 9"></td>
+                    <td class="content" id="6 10"></td>
+                    <td class="content" id="6 11"></td>
+                    <td class="content" id="6 12"></td>
+                </tr>
+                <tr>
+                    <td id="s7" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="7 0"></td>
+                    <td class="content" id="7 1"></td>
+                    <td class="content" id="7 2"></td>
+                    <td class="content" id="7 3"></td>
+                    <td class="content" id="7 4"></td>
+                    <td class="content" id="7 5"></td>
+                    <td class="content" id="7 6"></td>
+                    <td class="content" id="7 7"></td>
+                    <td class="content" id="7 8"></td>
+                    <td class="content" id="7 9"></td>
+                    <td class="content" id="7 10"></td>
+                    <td class="content" id="7 11"></td>
+                    <td class="content" id="7 12"></td>
+                </tr>
+                <tr>
+                    <td id="s8" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="8 0"></td>
+                    <td class="content" id="8 1"></td>
+                    <td class="content" id="8 2"></td>
+                    <td class="content" id="8 3"></td>
+                    <td class="content" id="8 4"></td>
+                    <td class="content" id="8 5"></td>
+                    <td class="content" id="8 6"></td>
+                    <td class="content" id="8 7"></td>
+                    <td class="content" id="8 8"></td>
+                    <td class="content" id="8 9"></td>
+                    <td class="content" id="8 10"></td>
+                    <td class="content" id="8 11"></td>
+                    <td class="content" id="8 12"></td>
+                </tr>
+                <tr>
+                    <td id="s9" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="9 0"></td>
+                    <td class="content" id="9 1"></td>
+                    <td class="content" id="9 2"></td>
+                    <td class="content" id="9 3"></td>
+                    <td class="content" id="9 4"></td>
+                    <td class="content" id="9 5"></td>
+                    <td class="content" id="9 6"></td>
+                    <td class="content" id="9 7"></td>
+                    <td class="content" id="9 8"></td>
+                    <td class="content" id="9 9"></td>
+                    <td class="content" id="9 10"></td>
+                    <td class="content" id="9 11"></td>
+                    <td class="content" id="9 12"></td>
+                </tr>
+                <tr>
+                    <td id="s10" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="10 0"></td>
+                    <td class="content" id="10 1"></td>
+                    <td class="content" id="10 2"></td>
+                    <td class="content" id="10 3"></td>
+                    <td class="content" id="10 4"></td>
+                    <td class="content" id="10 5"></td>
+                    <td class="content" id="10 6"></td>
+                    <td class="content" id="10 7"></td>
+                    <td class="content" id="10 8"></td>
+                    <td class="content" id="10 9"></td>
+                    <td class="content" id="10 10"></td>
+                    <td class="content" id="10 11"></td>
+                    <td class="content" id="10 12"></td>
+                </tr>
+                <tr>
+                    <td id="s11" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="11 0"></td>
+                    <td class="content" id="11 1"></td>
+                    <td class="content" id="11 2"></td>
+                    <td class="content" id="11 3"></td>
+                    <td class="content" id="11 4"></td>
+                    <td class="content" id="11 5"></td>
+                    <td class="content" id="11 6"></td>
+                    <td class="content" id="11 7"></td>
+                    <td class="content" id="11 8"></td>
+                    <td class="content" id="11 9"></td>
+                    <td class="content" id="11 10"></td>
+                    <td class="content" id="11 11"></td>
+                    <td class="content" id="11 12"></td>
+                </tr>
+                <tr>
+                    <td id="s12" class="colLabel" style="background: black; color: white; opacity: 0.6;"></td>
+                    <td class="content" id="12 0"></td>
+                    <td class="content" id="12 1"></td>
+                    <td class="content" id="12 2"></td>
+                    <td class="content" id="12 3"></td>
+                    <td class="content" id="12 4"></td>
+                    <td class="content" id="12 5"></td>
+                    <td class="content" id="12 6"></td>
+                    <td class="content" id="12 7"></td>
+                    <td class="content" id="12 8"></td>
+                    <td class="content" id="12 9"></td>
+                    <td class="content" id="12 10"></td>
+                    <td class="content" id="12 11"></td>
+                    <td class="content" id="12 12"></td>
+                </tr>
+
+
+            </table>
+        </div>
+        <script>
+            timer();
+            cellClick();
+            update();
+        </script>
+
+    </div>
+    <div id="light" class="white_content">
+    <div id ="winningText"></div>
+    <a href="javascript:void(0)" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a>
+    &nbsp;
+    <a href="highScores.html" onclick="document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">High Scores</a>
+    </div>
+    <div id="fade" class="black_overlay"></div>
+
+    <div id="buttons" style="margin-right:0%; margin-left:2%;">
+        <ul>
+            <li id="timeButton">
+                <button id="demo" style="width:140px;"></button>
+            </li>
+            <li style="">
+                <button onclick="seven();initTableAnsw();">7X7</button>
+            </li>
+            <li style="">
+                <button onclick="thirteen(); initTableAnsw();">13x13</button>
+            </li>
+            <li id="gridColor">
+                <input type="text" id="BGcolorPicker" placeholder="Grid Color">
+            </li>
+            <li id="gridColorEnter" margin-top: 0.2%;>
+                <button name="buttonExecute" id="buttonGrid" onclick="gridColor(document.getElementById('BGcolorPicker').value)"
+                    type="button" style="width:45px;height:20px;">Enter</button>
+            </li>
+
+            <li id="bgColor">
+                <input type="text" id="colorPicker" placeholder="Background Color">
+            </li>
+            <li id="bgColorEnter" margin-top: 0.2%;>
+                <button id="bGColor" name="colorButton" onclick="backGroundColor(document.getElementById('colorPicker').value)"
+                    type="button" style="width:45px;height:20px;">Enter</button>
+            </li>
+            <li>
+                <button>Tool</button>
+            </li>
+            <li>
+                <button onclick="initTableAnsw();">Random</button>
+            </li>
+            <li>
+                <button onclick="arcade();" style="font-family: bungee inline;color: #FF2C75;margin-top: 0%;font-weight: 400;">Arcade</button>
+            </li>
+            <li>
+                <button onclick="attack();" style="font-family: kumar one outline;font-weight: 700;color: #e0d219;">Attack</button>
+            </li>
+            <li>
+                <button id="elements">Elements</button>
+            </li>
+            <li>
+                <button id="turns">Turns</button>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
